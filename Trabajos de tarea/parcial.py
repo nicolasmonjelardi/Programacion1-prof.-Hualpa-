@@ -1,6 +1,7 @@
 titulos = []
 ejemplares = []
 
+#Mostrar menú
 def mostrar_menu():
     print("""
 Opciones Disponibles
@@ -13,6 +14,7 @@ Opciones Disponibles
 7) Salir
 """)
 
+#Agregar títulos nuevos
 def agregar_titulos():
     cantidad = input("¿Cuántos títulos desea ingresar? ")
     if not cantidad.isdigit():
@@ -31,6 +33,7 @@ def agregar_titulos():
                 ejemplares.append(0)
                 break
 
+#Agregar número de ejemplares de un título
 def agregar_ejemplares():
     if not titulos:
         print("No hay títulos registrados")
@@ -44,6 +47,7 @@ def agregar_ejemplares():
             else:
                 print("Debe ingresar una cantidad válida")
 
+#Consultar ejemplares disponibles de un título
 def consultar_disponibles():
     if not titulos:
         print("No hay títulos registrados")
@@ -51,6 +55,7 @@ def consultar_disponibles():
     for i, titulo in enumerate(titulos):
         print(f"Título: {titulo} - Ejemplares disponibles: {ejemplares[i]}")
 
+#Mostrar títulos sin ejemplares disponibles
 def consultar_agotados():
     agotados = [titulos[i] for i in range(len(titulos)) if ejemplares[i] == 0]
     if not agotados:
@@ -60,6 +65,7 @@ def consultar_agotados():
         for titulo in agotados:
             print(f"- {titulo}")
 
+#Modificar un título
 def modificar_titulo():
     viejo = input("Ingrese el título a modificar: ").lower().strip()
     if viejo not in titulos:
@@ -73,6 +79,7 @@ def modificar_titulo():
     titulos[indice] = nuevo
     print("Título modificado correctamente")
 
+#Actualizar los ejemplares de un título específico
 def actualizar_ejemplares():
     if not titulos:
         print("No hay títulos registrados")
